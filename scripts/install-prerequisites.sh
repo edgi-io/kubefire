@@ -66,15 +66,15 @@ function install_tailscale() {
 
   "$SCRIPT_DIR"/docker-image-extract.sh tailscale/tailscale:latest "$TMP_DIR"/tailscale-docker
   sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscale /usr/local/bin
-  mkdir -p /usr/sbin
-  sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscaled /usr/sbin
+  sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscaled /usr/local/bin
   rm -rf "$TMP_DIR"/tailscale-docker
 
   curl -sfSLO "https://raw.githubusercontent.com/tailscale/tailscale/${TAILSCALE_VERSION}/cmd/tailscaled/tailscaled.service"
   sudo groupadd tailscaled || true
   sudo mv tailscaled.service /etc/systemd/system/tailscaled.service
   chgrp_path=$(command -v chgrp | tr -d '\n')
-  sudo sed -i -E "s#(ExecStart=/usr/sbin/tailscaled.*)#\1\nExecStartPost=${chgrp_path} tailscaled /var/lib/tailscale/tailscaled.state /run/tailscale/tailscaled.sock#g" /etc/systemd/system/tailscaled.service
+  sudo sed -i -E "s#/usr/sbin/#/usr/local/bin/#g" /etc/systemd/system/tailscaled.service
+  sudo sed -i -E "s#(ExecStart=/usr/local/bin/tailscaled.*)#\1\nExecStartPost=${chgrp_path} tailscaled /var/lib/tailscale/tailscaled.state /run/tailscale/tailscaled.sock#g" /etc/systemd/system/tailscaled.service
 
   sudo systemctl enable --now tailscaled
 }
