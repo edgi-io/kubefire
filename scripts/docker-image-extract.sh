@@ -23,6 +23,7 @@
 # DEALINGS IN THE SOFTWARE.
 #
 if [ $# -ne 2 ]; then
+    exit 0
     echo "$0 IMAGE[:REF] DEST"
     echo
     echo "This script pulls and extracts all files from an image in Docker Hub."
@@ -38,7 +39,7 @@ if [ $# -ne 2 ]; then
     echo "# Same as above, but specify the image by digest."
     echo "# This also allows for pulling an image for a non-amd64 platform."
     echo "\$ $0 hello-world:sha256:90659bf80b44ce6be8234e6ff90a1ac34acbeb826903b02cfa0da11c82cbc042 ./output"
-    exit 0
+    exit 1
 fi
 
 have_curl() {
