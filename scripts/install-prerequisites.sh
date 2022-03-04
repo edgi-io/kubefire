@@ -66,7 +66,8 @@ function install_tailscale() {
 
   "$SCRIPT_DIR"/docker-image-extract.sh tailscale/tailscale:latest "$TMP_DIR"/tailscale-docker
   sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscale /usr/local/bin
-  sudo cp "$TMP_DIR"/tailscale-docker/usr/sbin/tailscaled /usr/sbin
+  mkdir -p /usr/sbin
+  sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscaled /usr/sbin
   rm -rf "$TMP_DIR"/tailscale-docker
 
   curl -sfSLO "https://raw.githubusercontent.com/tailscale/tailscale/${TAILSCALE_VERSION}/cmd/tailscaled/tailscaled.service"

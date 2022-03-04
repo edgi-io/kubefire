@@ -21,8 +21,8 @@ var InstallCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		// download install script
 		scripts := []script.Type{
-			script.InstallPrerequisites,
 			script.DockerImageExtract,
+			script.InstallPrerequisites,
 		}
 
 		for _, s := range scripts {
