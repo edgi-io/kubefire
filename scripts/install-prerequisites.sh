@@ -124,10 +124,15 @@ function install_cni() {
 
 function install_cni_patches() {
     if _is_arm_arch; then
-      curl -o host-local-rev -sSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-arm64" # FIXME: add -f back later
+      #curl -o host-local-rev -sSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-arm64" # FIXME: add -f back later
+      #HACK
+      cp ./target/cni/host-local-rev-linux-arm64
     else
-      curl -o host-local-rev -sfSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-amd64" || \
-      curl -o host-local-rev -sfSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev"
+      cp ./target/cni/host-local-rev-linux-amd64
+      #cp ./target/cni/host-local-rev
+
+      #curl -o host-local-rev -sfSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-amd64" || \
+      #curl -o host-local-rev -sfSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev"
     fi
 
     chmod +x host-local-rev

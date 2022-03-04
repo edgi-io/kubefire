@@ -28,7 +28,7 @@ jobs:
 
       - name: Create changelog
         id: changelog
-        uses: innobead/github-release-notes-action@master
+        uses: edgi-io/github-release-notes-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
