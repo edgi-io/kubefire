@@ -69,7 +69,7 @@ function install_tailscale() {
   sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscaled /usr/local/bin
   rm -rf "$TMP_DIR"/tailscale-docker
 
-  curl -sfSLO "https://raw.githubusercontent.com/tailscale/tailscale/${TAILSCALE_VERSION}/cmd/tailscaled/tailscaled.service"
+  curl -sfSLO "https://raw.githubusercontent.com/tailscale/tailscale/v${TAILSCALE_VERSION}/cmd/tailscaled/tailscaled.service"
   sudo groupadd tailscaled || true
   sudo mv tailscaled.service /etc/systemd/system/tailscaled.service
   chgrp_path=$(command -v chgrp | tr -d '\n')
