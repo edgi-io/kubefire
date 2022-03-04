@@ -20,6 +20,7 @@ type Type string
 
 const (
 	InstallPrerequisites        Type = "install-prerequisites.sh"
+	DockerImageExtract          Type = "docker-image-extract.sh"
 	UninstallPrerequisites      Type = "uninstall-prerequisites.sh"
 	InstallPrerequisitesKubeadm Type = "install-prerequisites-kubeadm.sh"
 	InstallPrerequisitesK0s     Type = "install-prerequisites-k0s.sh"

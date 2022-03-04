@@ -22,6 +22,7 @@ var InstallCmd = &cobra.Command{
 		// download install script
 		scripts := []script.Type{
 			script.InstallPrerequisites,
+			script.DockerImageExtract,
 		}
 
 		for _, s := range scripts {

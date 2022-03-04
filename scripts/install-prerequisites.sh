@@ -58,6 +58,30 @@ function check_virtualization() {
   lsmod | grep kvm
 }
 
+function install_tailscale() {
+  if _check_version /usr/local/bin/tailscale version $TAILSCALE_VERSION; then
+    echo "tailscale (${TAILSCALE_VERSION}) installed already!"
+    return
+  fi
+
+  "$SCRIPT_DIR"/docker-image-extract.sh tailscale/tailscale:latest "$TMP_DIR"/tailscale-docker
+  sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscale /usr/local/bin
+  sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscaled /usr/sbin
+  rm -rf "$TMP_DIR"/tailscale-docker
+
+  curl -sfSLO "https://raw.githubusercontent.com/tailscale/tailscale/${TAILSCALE_VERSION}/cmd/tailscaled/tailscaled.service"
+  sudo groupadd tailscaled || true
+  sudo mv tailscaled.service /etc/systemd/system/tailscaled.service
+  chgrp_path=$(command -v chgrp | tr -d '\n')
+  sudo sed -i -E "s#(ExecStart=/usr/sbin/tailscaled.*)#\1\nExecStartPost=${chgrp_path} tailscaled /var/lib/tailscale/tailscaled.state /run/tailscale/tailscaled.sock#g" /etc/systemd/system/tailscaled.service
+
+  sudo systemctl enable --now tailscaled
+}
+
+function check_tailscale() {
+  tailscale version
+}
+
 function install_containerd() {
   if _check_version /usr/local/bin/containerd --version $CONTAINERD_VERSION; then
     echo "containerd (${CONTAINERD_VERSION}) installed already!"
@@ -165,20 +189,6 @@ function check_ignite() {
   ignite version
 }
 
-function install_tailscale() {
-  if _check_version /usr/local/bin/tailscale version $TAILSCALE_VERSION; then
-    echo "tailscale (${TAILSCALE_VERSION}) installed already!"
-    return
-  fi
-
-  "$SCRIPT_DIR"/docker-image-extract.sh tailscale/tailscale:latest "$TMP_DIR"/tailscale-docker
-  sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscale{,d} /usr/local/bin
-  rm -rf "$TMP_DIR"/tailscale-docker
-}
-
-function check_tailscale() {
-  tailscale version
-}
 function create_cni_default_config() {
   mkdir -p /etc/cni/net.d/ || true
   sudo cat <<'EOF' > /etc/cni/net.d/00-kubefire.conflist
@@ -221,10 +231,7 @@ install_cni_patches
 install_ignite
 check_ignite
 create_cni_default_config
-	echo AJAJAJAJAJA 111120
 install_tailscale
-	echo AJAJAJAJAJA 111119
 check_tailscale
-	echo AJAJAJAJAJA 111118
 
 popd
