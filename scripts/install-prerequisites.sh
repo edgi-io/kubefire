@@ -22,6 +22,7 @@ fi
 
 STABLE_KUBEFIRE_VERSION=$(sed -E "s/(v[0-9]+\.[0-9]+\.[0-9]+)[a-zA-Z0-9\-]*/\1/g"< <(echo "$KUBEFIRE_VERSION"))
 
+DOWNLOAD_DIR=/home/marc/projects/NEW/edgi-backend/edgi-pulumi/kubefire
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 TMP_DIR=$( mktemp -d -p /dev/shm )
 pushd $TMP_DIR
@@ -127,13 +128,13 @@ function install_cni_patches() {
       #curl -o host-local-rev -sSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-arm64" # FIXME: add -f back later
 
       #HACK
-      cp "$SCRIPT_DIR"/target/cni/host-local-rev-linux-arm64 host-local-rev
+      cp "$DOWNLOAD_DIR"/target/cni/host-local-rev-linux-arm64 host-local-rev
     else
       #curl -o host-local-rev -sfSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-amd64" || \
       #curl -o host-local-rev -sfSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev"
 
       #HACK
-      cp "$SCRIPT_DIR"/target/cni/host-local-rev-linux-amd64 host-local-rev
+      cp "$DOWNLOAD_DIR"/target/cni/host-local-rev-linux-amd64 host-local-rev
     fi
 
     chmod +x host-local-rev
