@@ -2,9 +2,9 @@ package cluster
 
 import (
 	"fmt"
-	pkgconfig "github.com/innobead/kubefire/pkg/config"
-	"github.com/innobead/kubefire/pkg/data"
-	"github.com/innobead/kubefire/pkg/node"
+	pkgconfig "github.com/edgi-io/kubefire/pkg/config"
+	"github.com/edgi-io/kubefire/pkg/data"
+	"github.com/edgi-io/kubefire/pkg/node"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"os"

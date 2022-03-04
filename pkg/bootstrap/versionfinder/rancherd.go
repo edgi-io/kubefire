@@ -1,10 +1,10 @@
 package versionfinder
 
 import (
-	"github.com/innobead/kubefire/internal/config"
-	"github.com/innobead/kubefire/pkg/constants"
-	"github.com/innobead/kubefire/pkg/data"
-	"github.com/innobead/kubefire/pkg/util"
+	"github.com/edgi-io/kubefire/internal/config"
+	"github.com/edgi-io/kubefire/pkg/constants"
+	"github.com/edgi-io/kubefire/pkg/data"
+	"github.com/edgi-io/kubefire/pkg/util"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

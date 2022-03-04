@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/innobead/kubefire/internal/config"
+	"github.com/edgi-io/kubefire/internal/config"
 	"github.com/spf13/cobra"
 )
 

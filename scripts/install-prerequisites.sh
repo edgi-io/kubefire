@@ -6,23 +6,24 @@ set -o nounset
 set -o pipefail
 set -o xtrace
 
-TMP_DIR=/tmp/kubefire
 GOARCH=$(go env GOARCH 2>/dev/null || echo "amd64")
 
 KUBEFIRE_VERSION=${KUBEFIRE_VERSION:-}
 CONTAINERD_VERSION=${CONTAINERD_VERSION:-""}
 IGNITE_VERION=${IGNITE_VERION:-""}
+TAILSCALE_VERION=${TAILSCALE_VERION:-""}
 CNI_VERSION=${CNI_VERSION:-""}
 RUNC_VERSION=${RUNC_VERSION:-""}
 
-if [ -z "$KUBEFIRE_VERSION" ] || [ -z "$CONTAINERD_VERSION" ] || [ -z "$IGNITE_VERION" ] || [ -z "$CNI_VERSION" ] || [ -z "$RUNC_VERSION" ]; then
+if [ -z "$KUBEFIRE_VERSION" ] || [ -z "$CONTAINERD_VERSION" ] || [ -z "$IGNITE_VERION" ] || [ -z "$TAILSCALE_VERSION" ] || [ -z "$CNI_VERSION" ] || [ -z "$RUNC_VERSION" ]; then
   echo "incorrect versions provided!" >/dev/stderr
   exit 1
 fi
 
 STABLE_KUBEFIRE_VERSION=$(sed -E "s/(v[0-9]+\.[0-9]+\.[0-9]+)[a-zA-Z0-9\-]*/\1/g"< <(echo "$KUBEFIRE_VERSION"))
 
-rm -rf $TMP_DIR && mkdir -p $TMP_DIR
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+TMP_DIR=$( mktemp -d -p /dev/shm )
 pushd $TMP_DIR
 
 function cleanup() {
@@ -123,10 +124,10 @@ function install_cni() {
 
 function install_cni_patches() {
     if _is_arm_arch; then
-      curl -o host-local-rev -sSL "https://github.com/innobead/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-arm64" # FIXME: add -f back later
+      curl -o host-local-rev -sSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-arm64" # FIXME: add -f back later
     else
-      curl -o host-local-rev -sfSL "https://github.com/innobead/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-amd64" || \
-      curl -o host-local-rev -sfSL "https://github.com/innobead/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev"
+      curl -o host-local-rev -sfSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev-linux-amd64" || \
+      curl -o host-local-rev -sfSL "https://github.com/edgi-io/kubefire/releases/download/${STABLE_KUBEFIRE_VERSION}/host-local-rev"
     fi
 
     chmod +x host-local-rev
@@ -157,6 +158,20 @@ function check_ignite() {
   ignite version
 }
 
+function install_tailscale() {
+  if _check_version /usr/local/bin/tailscale version $TAILSCALE_VERION; then
+    echo "tailscale (${TAILSCALE_VERION}) installed already!"
+    return
+  fi
+
+  "$SCRIPT_DIR"/docker-image-extract.sh tailscale/tailscale:latest "$TMP_DIR"/tailscale-docker
+  sudo cp "$TMP_DIR"/tailscale-docker/usr/local/bin/tailscale{,d} /usr/local/bin
+  rm -rf "$TMP_DIR"/tailscale-docker
+}
+
+function check_tailscale() {
+  tailscale version
+}
 function create_cni_default_config() {
   mkdir -p /etc/cni/net.d/ || true
   sudo cat <<'EOF' > /etc/cni/net.d/00-kubefire.conflist
@@ -199,5 +214,10 @@ install_cni_patches
 install_ignite
 check_ignite
 create_cni_default_config
+	echo AJAJAJAJAJA 111120
+install_tailscale
+	echo AJAJAJAJAJA 111119
+check_tailscale
+	echo AJAJAJAJAJA 111118
 
 popd

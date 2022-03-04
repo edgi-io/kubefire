@@ -2,12 +2,12 @@ package validate
 
 import (
 	"fmt"
-	intcmd "github.com/innobead/kubefire/internal/cmd"
-	"github.com/innobead/kubefire/internal/di"
-	interr "github.com/innobead/kubefire/internal/error"
-	"github.com/innobead/kubefire/pkg/bootstrap"
-	"github.com/innobead/kubefire/pkg/constants"
-	"github.com/innobead/kubefire/pkg/data"
+	intcmd "github.com/edgi-io/kubefire/internal/cmd"
+	"github.com/edgi-io/kubefire/internal/di"
+	interr "github.com/edgi-io/kubefire/internal/error"
+	"github.com/edgi-io/kubefire/pkg/bootstrap"
+	"github.com/edgi-io/kubefire/pkg/constants"
+	"github.com/edgi-io/kubefire/pkg/data"
 	"github.com/pkg/errors"
 	"runtime"
 )

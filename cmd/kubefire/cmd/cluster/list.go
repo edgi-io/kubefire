@@ -1,9 +1,9 @@
 package cluster
 
 import (
-	intcmd "github.com/innobead/kubefire/internal/cmd"
-	"github.com/innobead/kubefire/internal/di"
-	"github.com/innobead/kubefire/pkg/config"
+	intcmd "github.com/edgi-io/kubefire/internal/cmd"
+	"github.com/edgi-io/kubefire/internal/di"
+	"github.com/edgi-io/kubefire/pkg/config"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

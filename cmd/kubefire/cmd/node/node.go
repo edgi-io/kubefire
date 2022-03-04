@@ -1,8 +1,8 @@
 package node
 
 import (
-	"github.com/innobead/kubefire/internal/di"
-	"github.com/innobead/kubefire/internal/validate"
+	"github.com/edgi-io/kubefire/internal/di"
+	"github.com/edgi-io/kubefire/internal/validate"
 	"github.com/spf13/cobra"
 )
 

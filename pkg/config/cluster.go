@@ -3,7 +3,7 @@ package config
 import (
 	"encoding/json"
 	"github.com/dlclark/regexp2"
-	"github.com/innobead/kubefire/pkg/constants"
+	"github.com/edgi-io/kubefire/pkg/constants"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"path"
@@ -46,8 +46,8 @@ func NewDefaultCluster() *Cluster {
 	cluster := NewCluster()
 
 	cluster.Bootstrapper = constants.KUBEADM
-	cluster.Image = "ghcr.io/innobead/kubefire-opensuse-leap:15.2"
-	cluster.KernelImage = "ghcr.io/innobead/kubefire-ignite-kernel:4.19.125-amd64"
+	cluster.Image = "ghcr.io/edgi-io/kubefire-opensuse-leap:15.2"
+	cluster.KernelImage = "ghcr.io/edgi-io/kubefire-ignite-kernel:4.19.125-amd64"
 	cluster.KernelArgs = "console=ttyS0 reboot=k panic=1 pci=off ip=dhcp security=apparmor apparmor=1"
 	cluster.Master.Count = 1
 	cluster.Master.Cpus = 2
@@ -59,7 +59,7 @@ func NewDefaultCluster() *Cluster {
 	cluster.Worker.DiskSize = "10GB"
 
 	if runtime.GOARCH == "arm64" {
-		cluster.KernelImage = "ghcr.io/innobead/kubefire-ignite-kernel:4.19.125-arm64"
+		cluster.KernelImage = "ghcr.io/edgi-io/kubefire-ignite-kernel:4.19.125-arm64"
 		cluster.Bootstrapper = constants.K3S
 	}
 

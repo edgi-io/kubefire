@@ -2,8 +2,8 @@ package config
 
 import (
 	"fmt"
-	"github.com/innobead/kubefire/internal/config"
-	"github.com/innobead/kubefire/pkg/constants"
+	"github.com/edgi-io/kubefire/internal/config"
+	"github.com/edgi-io/kubefire/pkg/constants"
 	"path"
 	"strings"
 )

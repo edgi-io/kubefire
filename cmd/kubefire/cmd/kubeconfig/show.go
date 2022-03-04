@@ -2,9 +2,9 @@ package kubeconfig
 
 import (
 	"fmt"
-	"github.com/innobead/kubefire/internal/config"
-	"github.com/innobead/kubefire/internal/di"
-	"github.com/innobead/kubefire/internal/validate"
+	"github.com/edgi-io/kubefire/internal/config"
+	"github.com/edgi-io/kubefire/internal/di"
+	"github.com/edgi-io/kubefire/internal/validate"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

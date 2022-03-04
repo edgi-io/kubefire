@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	gocni "github.com/containerd/go-cni"
-	"github.com/innobead/kubefire/internal/config"
+	"github.com/edgi-io/kubefire/internal/config"
 	"github.com/sirupsen/logrus"
 	"os/exec"
 	"reflect"

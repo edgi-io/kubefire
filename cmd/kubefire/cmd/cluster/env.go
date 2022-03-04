@@ -2,8 +2,8 @@ package cluster
 
 import (
 	"fmt"
-	"github.com/innobead/kubefire/internal/di"
-	"github.com/innobead/kubefire/internal/validate"
+	"github.com/edgi-io/kubefire/internal/di"
+	"github.com/edgi-io/kubefire/internal/validate"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

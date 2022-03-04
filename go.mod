@@ -1,4 +1,4 @@
-module github.com/innobead/kubefire
+module github.com/edgi-io/kubefire
 
 go 1.15
 

@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	intcmd "github.com/innobead/kubefire/internal/cmd"
-	"github.com/innobead/kubefire/internal/di"
+	intcmd "github.com/edgi-io/kubefire/internal/cmd"
+	"github.com/edgi-io/kubefire/internal/di"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

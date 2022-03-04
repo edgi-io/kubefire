@@ -1,8 +1,8 @@
 package cache
 
 import (
-	"github.com/innobead/kubefire/internal/di"
-	"github.com/innobead/kubefire/pkg/cache"
+	"github.com/edgi-io/kubefire/internal/di"
+	"github.com/edgi-io/kubefire/pkg/cache"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

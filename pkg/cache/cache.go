@@ -1,8 +1,8 @@
 package cache
 
 import (
-	pkgconfig "github.com/innobead/kubefire/pkg/config"
-	"github.com/innobead/kubefire/pkg/node"
+	pkgconfig "github.com/edgi-io/kubefire/pkg/config"
+	"github.com/edgi-io/kubefire/pkg/node"
 )
 
 type Type string

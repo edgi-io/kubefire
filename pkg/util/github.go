@@ -2,8 +2,8 @@ package util
 
 import (
 	"context"
+	"github.com/edgi-io/kubefire/pkg/data"
 	"github.com/google/go-github/github"
-	"github.com/innobead/kubefire/pkg/data"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/oauth2"

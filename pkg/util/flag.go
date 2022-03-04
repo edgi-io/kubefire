@@ -2,7 +2,7 @@ package util
 
 import (
 	"fmt"
-	"github.com/innobead/kubefire/pkg/output"
+	"github.com/edgi-io/kubefire/pkg/output"
 	"reflect"
 	"strings"
 )

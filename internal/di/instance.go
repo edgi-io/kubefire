@@ -1,14 +1,14 @@
 package di
 
 import (
-	"github.com/innobead/kubefire/internal/config"
-	"github.com/innobead/kubefire/pkg/bootstrap"
-	"github.com/innobead/kubefire/pkg/bootstrap/versionfinder"
-	"github.com/innobead/kubefire/pkg/cache"
-	"github.com/innobead/kubefire/pkg/cluster"
-	pkgconfig "github.com/innobead/kubefire/pkg/config"
-	"github.com/innobead/kubefire/pkg/node"
-	"github.com/innobead/kubefire/pkg/output"
+	"github.com/edgi-io/kubefire/internal/config"
+	"github.com/edgi-io/kubefire/pkg/bootstrap"
+	"github.com/edgi-io/kubefire/pkg/bootstrap/versionfinder"
+	"github.com/edgi-io/kubefire/pkg/cache"
+	"github.com/edgi-io/kubefire/pkg/cluster"
+	pkgconfig "github.com/edgi-io/kubefire/pkg/config"
+	"github.com/edgi-io/kubefire/pkg/node"
+	"github.com/edgi-io/kubefire/pkg/output"
 	"os"
 )
 

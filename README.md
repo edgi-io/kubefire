@@ -16,7 +16,7 @@ KubeFire is to create and manage Kubernetes clusters running on FireCracker micr
 For official releases, please install the latest release via the below command or use [`huber`](https://github.com/innobead/huber)
 
 ```console
-curl -sfSL https://raw.githubusercontent.com/innobead/kubefire/master/hack/install-release-kubefire.sh | bash
+curl -sfSL https://raw.githubusercontent.com/edgi-io/kubefire/master/hack/install-release-kubefire.sh | bash
 ```
 
 or 
@@ -76,9 +76,9 @@ Flags:
   -o, --extra-options string   Extra options (ex: key=value,...) for bootstrapper
   -f, --force                  Force to recreate if the cluster exists
   -h, --help                   help for create
-  -i, --image string           Rootfs container image (default "ghcr.io/innobead/kubefire-opensuse-leap:15.2")
+  -i, --image string           Rootfs container image (default "ghcr.io/edgi-io/kubefire-opensuse-leap:15.2")
       --kernel-args string     Kernel arguments (default "console=ttyS0 reboot=k panic=1 pci=off ip=dhcp security=apparmor apparmor=1")
-      --kernel-image string    Kernel container image (default "ghcr.io/innobead/kubefire-ignite-kernel:4.19.125-amd64")
+      --kernel-image string    Kernel container image (default "ghcr.io/edgi-io/kubefire-ignite-kernel:4.19.125-amd64")
       --master-count int       Count of master node (default 1)
       --master-cpu int         CPUs of master node (default 2)
       --master-memory string   Memory of master node (default "2GB")
@@ -109,8 +109,8 @@ bootstrapper: kubeadm
 pubkey: ""
 prikey: ""
 version: ""
-image: ghcr.io/innobead/kubefire-opensuse-leap:15.2
-kernel_image: ghcr.io/innobead/kubefire-ignite-kernel:4.19.125-amd64
+image: ghcr.io/edgi-io/kubefire-opensuse-leap:15.2
+kernel_image: ghcr.io/edgi-io/kubefire-ignite-kernel:4.19.125-amd64
 kernel_args: console=ttyS0 reboot=k panic=1 pci=off ip=dhcp security=apparmor apparmor=1
 extra_options: {}
 deployed: false
@@ -418,17 +418,17 @@ kubefire install
 Besides below prebuilt images, you can also use the images provided by [weaveworks/ignite](https://github.com/weaveworks/ignite/tree/master/images).
 
 ## RootFS images
-- ghcr.io/innobead/kubefire-opensuse-leap:15.3
-- ghcr.io/innobead/kubefire-sle15:15.3
-- ghcr.io/innobead/kubefire-rocky:8
-- ghcr.io/innobead/kubefire-centos:8
-- ghcr.io/innobead/kubefire-ubuntu:18.04, 20.04, 20.10
+- ghcr.io/edgi-io/kubefire-opensuse-leap:15.3
+- ghcr.io/edgi-io/kubefire-sle15:15.3
+- ghcr.io/edgi-io/kubefire-rocky:8
+- ghcr.io/edgi-io/kubefire-centos:8
+- ghcr.io/edgi-io/kubefire-ubuntu:18.04, 20.04, 20.10
 
 ## Kernel images (w/ AppArmor enabled)
-- ghcr.io/innobead/kubefire-ignite-kernel:5.4.43-amd64
-- ghcr.io/innobead/kubefire-ignite-kernel:4.19.125-amd64 (default)
-- ghcr.io/innobead/kubefire-ignite-kernel:5.4.43-arm64
-- ghcr.io/innobead/kubefire-ignite-kernel:4.19.125-arm64 (default)
+- ghcr.io/edgi-io/kubefire-ignite-kernel:5.4.43-amd64
+- ghcr.io/edgi-io/kubefire-ignite-kernel:4.19.125-amd64 (default)
+- ghcr.io/edgi-io/kubefire-ignite-kernel:5.4.43-arm64
+- ghcr.io/edgi-io/kubefire-ignite-kernel:4.19.125-arm64 (default)
 
 # References
 

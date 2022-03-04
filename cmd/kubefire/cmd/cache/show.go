@@ -1,9 +1,9 @@
 package cache
 
 import (
-	intcmd "github.com/innobead/kubefire/internal/cmd"
-	"github.com/innobead/kubefire/internal/di"
-	"github.com/innobead/kubefire/pkg/cache"
+	intcmd "github.com/edgi-io/kubefire/internal/cmd"
+	"github.com/edgi-io/kubefire/internal/di"
+	"github.com/edgi-io/kubefire/pkg/cache"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

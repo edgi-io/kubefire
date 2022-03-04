@@ -1,7 +1,7 @@
 package cache
 
 import (
-	"github.com/innobead/kubefire/pkg/node"
+	"github.com/edgi-io/kubefire/pkg/node"
 	"github.com/sirupsen/logrus"
 )
 

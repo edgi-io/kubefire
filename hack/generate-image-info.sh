@@ -13,7 +13,7 @@ GENERATED_DIR=${PROJECT_DIR}/generated
 IMAGE_LIST_FILE=${GENERATED_DIR}/image.list
 KERNEL_LIST_FILE=${GENERATED_DIR}/kernel.list
 ARCH_LIST="amd64 arm64"
-CR_IMAGE_PREFIX=ghcr.io/innobead
+CR_IMAGE_PREFIX=ghcr.io/edgi-io
 
 function rootfs_image_urls() {
   for img in $IMAGES; do

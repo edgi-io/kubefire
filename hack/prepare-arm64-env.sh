@@ -33,6 +33,6 @@ make
 sudo make install
 
 echo "Installing Kubefire prerequisites ..."
-curl -sfSL https://raw.githubusercontent.com/innobead/kubefire/master/hack/install-release-kubefire.sh | bash
+curl -sfSL https://raw.githubusercontent.com/edgi-io/kubefire/master/hack/install-release-kubefire.sh | bash
 kubefire install
 kubefire info

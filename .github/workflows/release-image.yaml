@@ -31,4 +31,4 @@ jobs:
         env:
           CR_USERNAME: ${{ secrets.CR_USERNAME }}
           CR_PAT: ${{ secrets.CR_PAT }}
-          CR_PATH: ghcr.io/
+          CR_PATH: edgi.io/

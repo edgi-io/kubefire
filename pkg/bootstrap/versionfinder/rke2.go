@@ -2,10 +2,10 @@ package versionfinder
 
 import (
 	"encoding/json"
-	interr "github.com/innobead/kubefire/internal/error"
-	"github.com/innobead/kubefire/pkg/constants"
-	"github.com/innobead/kubefire/pkg/data"
-	"github.com/innobead/kubefire/pkg/util"
+	interr "github.com/edgi-io/kubefire/internal/error"
+	"github.com/edgi-io/kubefire/pkg/constants"
+	"github.com/edgi-io/kubefire/pkg/data"
+	"github.com/edgi-io/kubefire/pkg/util"
 	"github.com/sirupsen/logrus"
 	"regexp"
 	"sort"

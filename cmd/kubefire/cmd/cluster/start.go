@@ -1,9 +1,9 @@
 package cluster
 
 import (
-	"github.com/innobead/kubefire/internal/di"
-	"github.com/innobead/kubefire/internal/validate"
-	"github.com/innobead/kubefire/pkg/config"
+	"github.com/edgi-io/kubefire/internal/di"
+	"github.com/edgi-io/kubefire/internal/validate"
+	"github.com/edgi-io/kubefire/pkg/config"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

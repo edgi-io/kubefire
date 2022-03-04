@@ -1,9 +1,10 @@
+//go:build !feature_run_on_ci
 // +build !feature_run_on_ci
 
 package versionfinder
 
 import (
-	"github.com/innobead/kubefire/pkg/data"
+	"github.com/edgi-io/kubefire/pkg/data"
 	"io/ioutil"
 	"net/http"
 	"reflect"

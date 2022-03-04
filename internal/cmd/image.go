@@ -36,7 +36,7 @@ func ImageInfos() (*[]ImageInfo, error) {
 }
 
 func imageInfos(imageType ImageType) (*[]ImageInfo, error) {
-	result, err := http.DefaultClient.Get(fmt.Sprintf("https://raw.githubusercontent.com/innobead/kubefire/master/generated/%s.list", imageType))
+	result, err := http.DefaultClient.Get(fmt.Sprintf("https://raw.githubusercontent.com/edgi-io/kubefire/master/generated/%s.list", imageType))
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}

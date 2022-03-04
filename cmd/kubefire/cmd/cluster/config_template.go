@@ -1,8 +1,8 @@
 package cluster
 
 import (
-	pkgconfig "github.com/innobead/kubefire/pkg/config"
-	"github.com/innobead/kubefire/pkg/output"
+	pkgconfig "github.com/edgi-io/kubefire/pkg/config"
+	"github.com/edgi-io/kubefire/pkg/output"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"os"

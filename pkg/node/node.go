@@ -2,8 +2,8 @@ package node
 
 import (
 	"fmt"
-	"github.com/innobead/kubefire/pkg/config"
-	"github.com/innobead/kubefire/pkg/data"
+	"github.com/edgi-io/kubefire/pkg/config"
+	"github.com/edgi-io/kubefire/pkg/data"
 	"regexp"
 	"strconv"
 	"time"

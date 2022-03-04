@@ -1,8 +1,8 @@
 package versionfinder
 
 import (
-	"github.com/innobead/kubefire/pkg/constants"
-	"github.com/innobead/kubefire/pkg/data"
+	"github.com/edgi-io/kubefire/pkg/constants"
+	"github.com/edgi-io/kubefire/pkg/data"
 )
 
 type Finder interface {

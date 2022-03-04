@@ -1,7 +1,7 @@
 package data
 
 import (
-	"github.com/innobead/kubefire/pkg/config"
+	"github.com/edgi-io/kubefire/pkg/config"
 	"strings"
 )
 

@@ -10,8 +10,8 @@ DOCKER_BUILDX := docker buildx build --platform linux/arm64,linux/amd64
 
 CR_USERNAME := $(CR_USERNAME)
 CR_PAT := $(CR_PAT)
-CR_PATH ?= ghcr.io/
-CR_IMAGE_PREFIX := $(CR_PATH)innobead
+CR_PATH ?= edgi.io/
+CR_IMAGE_PREFIX := $(CR_PATH)edgi-io
 KERNEL_IMAGE_NAME=${CR_IMAGE_PREFIX}/$(PROJECT)-ignite-kernel
 BUILD_SUSE_IMAGES ?=
 
@@ -22,12 +22,12 @@ IgniteVersion := v0.9.0
 CniVersion := v0.9.1
 RuncVersion := v1.0.0-rc93
 
-GO_LINKFLAGS := -X=github.com/innobead/kubefire/internal/config.BuildVersion=$(COMMIT)
-GO_LINKFLAGS := -X=github.com/innobead/kubefire/internal/config.TagVersion=$(TAG) $(GO_LINKFLAGS)
-GO_LINKFLAGS := -X=github.com/innobead/kubefire/internal/config.ContainerdVersion=$(ContainerdVersion) $(GO_LINKFLAGS)
-GO_LINKFLAGS := -X=github.com/innobead/kubefire/internal/config.IgniteVersion=$(IgniteVersion) $(GO_LINKFLAGS)
-GO_LINKFLAGS := -X=github.com/innobead/kubefire/internal/config.CniVersion=$(CniVersion) $(GO_LINKFLAGS)
-GO_LINKFLAGS := -X=github.com/innobead/kubefire/internal/config.RuncVersion=$(RuncVersion) $(GO_LINKFLAGS)
+GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.BuildVersion=$(COMMIT)
+GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.TagVersion=$(TAG) $(GO_LINKFLAGS)
+GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.ContainerdVersion=$(ContainerdVersion) $(GO_LINKFLAGS)
+GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.IgniteVersion=$(IgniteVersion) $(GO_LINKFLAGS)
+GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.CniVersion=$(CniVersion) $(GO_LINKFLAGS)
+GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.RuncVersion=$(RuncVersion) $(GO_LINKFLAGS)
 GO_LDFLAGS := -ldflags "$(GO_LINKFLAGS)"
 
 BUILD_DIR := $(CURDIR)/target
@@ -73,7 +73,7 @@ build-cni: ## Build CNI executables
 	mkdir -p $(BUILD_CNI_DIR)
 	cd $(BUILD_TMP_DIR); \
 		TAG=$(CniVersion)-patch; \
-		git clone --branch $${TAG} https://github.com/innobead/plugins; \
+		git clone --branch $${TAG} git@github.com:edgi-io/kubefire-plugins.git plugins; \
         GOOS=linux GOARCH=amd64 ./plugins/build_linux.sh -ldflags "-extldflags -static -X github.com/containernetworking/plugins/pkg/utils/buildversion.BuildVersion=$${TAG}"; \
 		mv ./plugins/bin/host-local $(BUILD_CNI_DIR)/host-local-rev-linux-amd64; \
         GOOS=linux GOARCH=arm64 ./plugins/build_linux.sh -ldflags "-extldflags -static -X github.com/containernetworking/plugins/pkg/utils/buildversion.BuildVersion=$${TAG}"; \

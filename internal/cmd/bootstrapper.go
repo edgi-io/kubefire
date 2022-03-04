@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"github.com/innobead/kubefire/internal/di"
-	"github.com/innobead/kubefire/pkg/bootstrap"
-	"github.com/innobead/kubefire/pkg/constants"
+	"github.com/edgi-io/kubefire/internal/di"
+	"github.com/edgi-io/kubefire/pkg/bootstrap"
+	"github.com/edgi-io/kubefire/pkg/constants"
 	"github.com/sirupsen/logrus"
 	"strings"
 )

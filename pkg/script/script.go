@@ -3,9 +3,9 @@ package script
 import (
 	"context"
 	"fmt"
-	intconfig "github.com/innobead/kubefire/internal/config"
-	"github.com/innobead/kubefire/pkg/config"
-	"github.com/innobead/kubefire/pkg/util"
+	intconfig "github.com/edgi-io/kubefire/internal/config"
+	"github.com/edgi-io/kubefire/pkg/config"
+	"github.com/edgi-io/kubefire/pkg/util"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"io"
@@ -30,7 +30,7 @@ const (
 
 var (
 	downloadScriptEndpointFormat = fmt.Sprintf(
-		"https://raw.githubusercontent.com/innobead/kubefire/%s/scripts/%%s",
+		"https://raw.githubusercontent.com/edgi-io/kubefire/%s/scripts/%%s",
 		intconfig.GetTagVersionForDownloadScript(intconfig.TagVersion),
 	)
 )

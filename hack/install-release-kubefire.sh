@@ -6,7 +6,7 @@ set -o pipefail
 set -o xtrace
 
 function get_latest_release() {
-  curl -sfSL "https://api.github.com/repos/innobead/kubefire/releases/latest" |
+  curl -sfSL "https://api.github.com/repos/edgi-io/kubefire/releases/latest" |
     grep '"tag_name":' |
     sed -E 's/.*"([^"]+)".*/\1/'
 }
@@ -18,4 +18,4 @@ fi
 
 echo $filename
 # shellcheck disable=SC2046
-curl -sfSLO "https://github.com/innobead/kubefire/releases/download/$(get_latest_release)/$filename" && chmod +x $filename && sudo mv $filename /usr/local/bin/kubefire
+curl -sfSLO "https://github.com/edgi-io/kubefire/releases/download/$(get_latest_release)/$filename" && chmod +x $filename && sudo mv $filename /usr/local/bin/kubefire
