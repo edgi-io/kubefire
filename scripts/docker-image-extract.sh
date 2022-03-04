@@ -38,7 +38,7 @@ if [ $# -ne 2 ]; then
     echo "# Same as above, but specify the image by digest."
     echo "# This also allows for pulling an image for a non-amd64 platform."
     echo "\$ $0 hello-world:sha256:90659bf80b44ce6be8234e6ff90a1ac34acbeb826903b02cfa0da11c82cbc042 ./output"
-    exit 1
+    exit 0
 fi
 
 have_curl() {
