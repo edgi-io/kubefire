@@ -24,7 +24,7 @@ CNI_VERSION=${CNI_VERSION:-""}
 RUNC_VERSION=${RUNC_VERSION:-""}
 CRICTL_VERSION=${CRICTL_VERSION:-"v1.18.0"}
 
-if [ -z "$KUBE_VERSION" ] || [ -z "$KUBE_RELEASE_VERSION" ] || [ -z "$CONTAINERD_VERSION" ] || [ -z "$IGNITE_VERION" ] || [ -z "$CNI_VERSION" ] || [ -z "$RUNC_VERSION" ]; then
+if [ -z "$KUBE_VERSION" ] || [ -z "$KUBE_RELEASE_VERSION" ] || [ -z "$CONTAINERD_VERSION" ] || [ -z "$IGNITE_VERSION" ] || [ -z "$CNI_VERSION" ] || [ -z "$RUNC_VERSION" ]; then
   echo "incorrect versions provided!" >/dev/stderr
   exit 1
 fi

@@ -12,6 +12,7 @@ var (
 var (
 	ContainerdVersion string
 	IgniteVersion     string
+	TailscaleVersion  string
 	CniVersion        string
 	RuncVersion       string
 )
@@ -32,7 +33,8 @@ func ExpectedPrerequisiteVersionsEnvVars() EnvVars {
 	return []string{
 		fmt.Sprintf("KUBEFIRE_VERSION=%s", TagVersion),
 		fmt.Sprintf("CONTAINERD_VERSION=%s", ContainerdVersion),
-		fmt.Sprintf("IGNITE_VERION=%s", IgniteVersion),
+		fmt.Sprintf("IGNITE_VERSION=%s", IgniteVersion),
+		fmt.Sprintf("TAILSCALE_VERSION=%s", TailscaleVersion),
 		fmt.Sprintf("CNI_VERSION=%s", CniVersion),
 		fmt.Sprintf("RUNC_VERSION=%s", RuncVersion),
 	}

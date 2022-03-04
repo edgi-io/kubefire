@@ -19,6 +19,7 @@ GolangCILintVersion := 1.32.2
 
 ContainerdVersion := v1.4.4
 IgniteVersion := v0.9.0
+TailscaleVersion := 1.22.0
 CniVersion := v0.9.1
 RuncVersion := v1.0.0-rc93
 
@@ -26,6 +27,7 @@ GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.BuildVersion=$(CO
 GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.TagVersion=$(TAG) $(GO_LINKFLAGS)
 GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.ContainerdVersion=$(ContainerdVersion) $(GO_LINKFLAGS)
 GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.IgniteVersion=$(IgniteVersion) $(GO_LINKFLAGS)
+GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.TailscaleVersion=$(TailscaleVersion) $(GO_LINKFLAGS)
 GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.CniVersion=$(CniVersion) $(GO_LINKFLAGS)
 GO_LINKFLAGS := -X=github.com/edgi-io/kubefire/internal/config.RuncVersion=$(RuncVersion) $(GO_LINKFLAGS)
 GO_LDFLAGS := -ldflags "$(GO_LINKFLAGS)"

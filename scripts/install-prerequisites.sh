@@ -10,12 +10,12 @@ GOARCH=$(go env GOARCH 2>/dev/null || echo "amd64")
 
 KUBEFIRE_VERSION=${KUBEFIRE_VERSION:-}
 CONTAINERD_VERSION=${CONTAINERD_VERSION:-""}
-IGNITE_VERION=${IGNITE_VERION:-""}
-TAILSCALE_VERION=${TAILSCALE_VERION:-""}
+IGNITE_VERSION=${IGNITE_VERSION:-""}
+TAILSCALE_VERSION=${TAILSCALE_VERSION:-""}
 CNI_VERSION=${CNI_VERSION:-""}
 RUNC_VERSION=${RUNC_VERSION:-""}
 
-if [ -z "$KUBEFIRE_VERSION" ] || [ -z "$CONTAINERD_VERSION" ] || [ -z "$IGNITE_VERION" ] || [ -z "$TAILSCALE_VERSION" ] || [ -z "$CNI_VERSION" ] || [ -z "$RUNC_VERSION" ]; then
+if [ -z "$KUBEFIRE_VERSION" ] || [ -z "$CONTAINERD_VERSION" ] || [ -z "$IGNITE_VERSION" ] || [ -z "$TAILSCALE_VERSION" ] || [ -z "$CNI_VERSION" ] || [ -z "$RUNC_VERSION" ]; then
   echo "incorrect versions provided!" >/dev/stderr
   exit 1
 fi
@@ -135,17 +135,17 @@ function install_cni_patches() {
 }
 
 function install_ignite() {
-  if _check_version /usr/local/bin/ignite version $IGNITE_VERION; then
-    echo "ignite (${IGNITE_VERION}) installed already!"
+  if _check_version /usr/local/bin/ignite version $IGNITE_VERSION; then
+    echo "ignite (${IGNITE_VERSION}) installed already!"
     return
   fi
 
   for binary in ignite ignited; do
     echo "Installing $binary..."
 
-    local f="https://github.com/weaveworks/ignite/releases/download/${IGNITE_VERION}/${binary}-amd64"
+    local f="https://github.com/weaveworks/ignite/releases/download/${IGNITE_VERSION}/${binary}-amd64"
     if _is_arm_arch; then
-      f="https://github.com/weaveworks/ignite/releases/download/${IGNITE_VERION}/${binary}-arm64"
+      f="https://github.com/weaveworks/ignite/releases/download/${IGNITE_VERSION}/${binary}-arm64"
     fi
 
     curl -sfSLo $binary "$f"
@@ -159,8 +159,8 @@ function check_ignite() {
 }
 
 function install_tailscale() {
-  if _check_version /usr/local/bin/tailscale version $TAILSCALE_VERION; then
-    echo "tailscale (${TAILSCALE_VERION}) installed already!"
+  if _check_version /usr/local/bin/tailscale version $TAILSCALE_VERSION; then
+    echo "tailscale (${TAILSCALE_VERSION}) installed already!"
     return
   fi
 
